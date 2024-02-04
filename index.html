@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-neutral-100 dark:bg-neutral-900 transition-colors duration-300" style="height:100vh;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+
+<body class="bg-neutral-100 dark:bg-neutral-900 transition-colors duration-300 min-h-full w-full flex flex-col">
+    <style>
+        #menu-toggle:checked+#menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    </style>
+    <nav
+    class="flex justify-between lg:px-20 px-4 py-4 items-center dark:bg-neutral-900 bg-neutral-100 flex-wrap sticky top-0 z-10">
+    <a href="/" class="text-xl flex-1 text-neutral-800 dark:text-neutral-200 font-bold">Kaustubha</a>
+    <input type="checkbox" id="menu-toggle" class="hidden" />
+    <div id="menu"
+        class="items-center lg:gap-4 hidden lg:flex w-full lg:flex-row lg:max-w-fit lg:justify-center lg:order-1 order-3 pr-2">
+        <a class="font-semibold text-neutral-700 dark:text-neutral-300" href="/">Home</a>
+        <a class="font-semibold text-neutral-700 dark:text-neutral-300" href="/posts/page/1.html">Posts</a>
+        <a class="font-semibold text-neutral-700 dark:text-neutral-300" href="/projects/page/1.html">Projects</a>
+    </div>
+    <label class="lg:hidden pl-2 order-2" for="menu-toggle">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-menu-2 stroke-neutral-700 dark:stroke-neutral-300" width="25"
+                viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+        </span>
+    </label>
+    <div
+        class="border-r lg:border-r-0 lg:border-l border-neutral-500 pr-2 lg:pl-2 order-1 lg:order-3 flex gap-2 lg:gap-4 items-center">
+        <a target="_blank" href="https://github.com/kaustubha-chaturvedi">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-brand-github stroke-neutral-700 dark:stroke-neutral-300" width="25"
+                viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+            </svg>
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/kaustubha-chaturvedi/">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-brand-linkedin stroke-neutral-700 dark:stroke-neutral-300"
+                width="25" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                <path d="M8 11l0 5" />
+                <path d="M8 8l0 .01" />
+                <path d="M12 16l0 -5" />
+                <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+            </svg>
+        </a>
+        <label class="switch">
+            <input class="hidden" type="checkbox" id="darkModeToggle">
+            <span class="slider">
+                <span id="sunIcon" class="toggle-icons dark:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-sun-high stroke-neutral-700" width="32" height="32"
+                        viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" />
+                        <path d="M6.343 17.657l-1.414 1.414" />
+                        <path d="M6.343 6.343l-1.414 -1.414" />
+                        <path d="M17.657 6.343l1.414 -1.414" />
+                        <path d="M17.657 17.657l1.414 1.414" />
+                        <path d="M4 12h-2" />
+                        <path d="M12 4v-2" />
+                        <path d="M20 12h2" />
+                        <path d="M12 20v2" />
+                    </svg>
+                </span>
+                <span id="moonIcon" class="toggle-icons dark:block hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-moon dark:stroke-neutral-300" width="32" height="32"
+                        viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                    </svg>
+                </span>
+            </span>
+        </label>
+    </div>
+</nav>
+    
+<section
+    class="bg-neutral-100 mt-4 dark:bg-neutral-900 dark:text-neutral-200 text-neutral-800 transition-colors duration-300">
+    <div class="flex items-center flex-col justify-center text-center">
+        <img src="https://images.freeimages.com/images/large-previews/023/geek-avatar-1632962.jpg" alt="Profile Image" class="w-44 mb-4 rounded-full">
+        <h1 class="text-4xl font-bold mb-4">Kaustubha Chaturvedi</h1>
+        <p class="text-lg mb-4">Rise above and beyond</p>
+        <p class="mb-4">I am a software engineer with a passion for building scalable and reliable systems.</p>
+        <div class="flex space-x-4">
+            
+        </div>
+    </div>
+    <div
+        class="prose dark:prose-invert porse-neutral porse-lg prose-img:rounded-lg prose-a:text-blue-400 mx-auto p-4 marker:text-orange-300 dark:marker:text-green-800">
+        <h3>Experience</h3>
+<ul>
+<li>
+<h5><strong>Python Developer at Prishni (Nov 2023 - Present)</strong></h5>
+<ul>
+<li>Worked on the company's website backend.</li>
+<li>Worked on an indigenous project for company clients.</li>
+<li><strong>Tech Stack:</strong> Django, FastApi, PostgreSQL, Azure, Docker</li>
+</ul>
+</li>
+<li>
+<h5><strong>App Development Lead at Undigitally (Jan - Oct 2023)</strong></h5>
+<ul>
+<li>Created the entire app backend for the startup.</li>
+<li><strong>Tech Stack:</strong> Flutter, Firebase, FastAPI</li>
+</ul>
+</li>
+<li>
+<h5><strong>Web Developer at Police HQ, Bhopal (Jul - Nov 2021)</strong></h5>
+<ul>
+<li>Created and deployed a website for India Covid Help Group under PHQ.</li>
+<li><strong>Tech Stack:</strong> Django, MariaDB, Self-Hosted Server, Docker</li>
+</ul>
+</li>
+</ul>
+<h3>Skills</h3>
+<ul>
+<li><strong>Languages</strong>: Java, Python, C++, C, JavaScript, HTML, CSS, SQL, Golang</li>
+<li><strong>Frameworks</strong>: Django, FastApi, React, Express.js, Flask, Spring Boot, Bootstrap, Material UI, Tensorflow, Keras, PyTorch, Pandas</li>
+<li><strong>Databases</strong>: MySQL, PostgreSQL, MongoDB, Redis, DynamoDB</li>
+<li><strong>Tools</strong>: Git, Docker, Kubernetes, AWS, Azure, Postman</li>
+</ul>
+
+    </div>
+</section>
+
+    <footer
+    class="transition-colors duration-300 bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-200 text-neutral-800">
+    <div class="w-full mx-auto md:py-4">
+        <div class="flex items-center flex-col md:flex-row justify-between px-4">
+            <span class="block text-sm text-neutral-800 dark:text-neutral-200 text-center">©
+                <script>document.write(new Date().getFullYear())</script> <a href="/" hx-boost="true" hx-target="#main"
+                    class="hover:underline cursor-pointer">Kaustubha</a>. All Rights
+                Reserved.
+            </span>
+            <a href="mailto:kaustubhachaturvedi@gmail.com"
+                class="text-lg cursor-pointer text-gray-800 dark:text-gray-200 p-1">kaustubhachaturvedi@gmail.com</a>
+        </div>
+    </div>
+</footer>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const localStorageTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark');
+
+        const toggleDarkMode = (darkMode) => {
+            document.documentElement.classList.toggle('dark', darkMode);
+            localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+            sunIcon.classList.toggle('hidden', darkMode);
+            moonIcon.classList.toggle('hidden', !darkMode);
+        };
+
+        darkModeToggle.checked = localStorageTheme === 'dark';
+        toggleDarkMode(darkModeToggle.checked);
+
+        darkModeToggle.addEventListener('change', () => toggleDarkMode(darkModeToggle.checked));
+    </script>
+</body>
+
+</html>
