@@ -9,11 +9,18 @@ export default function ExperienceSection({ experiences }: { experiences: Experi
       {experiences.map((exp, index) => (
         <Card key={index} className="dark:bg-gray-800">
           <CardHeader>
-            <CardTitle>{exp.title} at {exp.company}</CardTitle>
-            <CardDescription className="dark:text-gray-400">{exp.period}</CardDescription>
+            <CardTitle className='flex justify-between flex-wrap'>
+              <p>{exp.title} at {exp.company}</p>
+              <p className="text-sm dark:text-gray-400">{exp.period}</p>
+            </CardTitle>
+            <CardDescription className="dark:text-gray-400">{exp.technologies}</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="dark:text-gray-300">{exp.description}</p>
+            <ul className="list-disc pl-5 dark:text-gray-300">
+              {exp.description.map((point, idx) => (
+                <li key={idx}>{point}</li>
+              ))}
+            </ul>
           </CardContent>
         </Card>
       ))}

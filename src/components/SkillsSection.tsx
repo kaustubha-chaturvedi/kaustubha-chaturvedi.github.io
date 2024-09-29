@@ -11,7 +11,7 @@ function SkillsDisplay({ skills }: { skills: string[] }) {
       {skills.map(skill => (
         <span
           key={skill}
-          className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-gray-800 dark:bg-primary/20 dark:text-gray-100 hover:bg-primary/20 dark:hover:bg-primary/30">
+          className="px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-gray-800 dark:bg-primary/20 dark:text-gray-100 hover:bg-primary/20 dark:hover:bg-primary/30">
           {skill}
         </span>
       ))}
@@ -26,13 +26,15 @@ export default function SkillsSection({ positions }: { positions: Position[] }) 
     <div className="mb-12 relative">
       <h2 className="text-2xl font-semibold mb-4">Skills</h2>
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="mb-4">
-          {positions.map((position) => (
-            <TabsTrigger key={position.name} value={position.name} onClick={() => setActiveTab(position.name)}>
-              {position.name}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <div className="overflow-auto">
+          <TabsList className="mb-4">
+            {positions.map((position) => (
+              <TabsTrigger className='overflow-auto' key={position.name} value={position.name} onClick={() => setActiveTab(position.name)}>
+                {position.name}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
 
         {positions.map((position) => (
           <TabsContent key={position.name} value={position.name} className={`tab-content ${activeTab === position.name ? "tab-content-active" : ""}`}>

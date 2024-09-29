@@ -3,7 +3,10 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 import ExperienceSection from '@/components/ExperienceSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import { info, positions, experiences, projects } from '@/data/portfolioData';
+import { info } from '@/data/about';
+import { experiences } from '@/data/experiences';
+import { positions } from '@/data/skills';
+import { projects } from '@/data/projects';
 import Image from 'next/image'
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 

@@ -23,7 +23,8 @@ export type Experience = {
     title: string;
     company: string;
     period: string;
-    description: string;
+    technologies: string;
+    description: string[];
 };
 
 export type Project = {
