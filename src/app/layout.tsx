@@ -1,3 +1,4 @@
+import { Providers } from "./providers";
 import type { Metadata } from "next";
 import { JetBrains_Mono } from 'next/font/google'
 import "./globals.css";
@@ -18,10 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={jbm.className}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={jbm.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
