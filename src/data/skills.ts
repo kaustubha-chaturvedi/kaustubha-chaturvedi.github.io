@@ -6,6 +6,7 @@ export const positions: Position[] = [
         skills: [
             { category: "Programming Languages", items: ["Python", "C/C++", "JavaScript", "Golang", "SQL"] },
             { category: "Frameworks & Libraries", items: ["Django", "FastAPI", "Express.js", "Flask", "NextJS", "TensorFlow", "Keras", "Pandas"] },
+            { category: "Backend", items: ["RESTful APIs", "GraphQL", "Microservices", "Serverless"] },
             { category: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB", "DynamoDB", "Redis"] },
             { category: "DevOps & Tools", items: ["Git", "Docker", "AWS", "Azure", "Kubernetes"] }
         ],
