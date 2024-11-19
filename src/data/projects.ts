@@ -2,6 +2,12 @@ import { Project } from "@/types/portfolioTypes";
 
 export const projects: Project[] = [
     {
+        title: "Email Campaign Manager",
+        technologies: "Django, DRF, Celery, Redis, Docker",
+        description: "Create Newsletters, Email Campaigns, manage subscribers for newsletter, and schedule email ahead of time.",
+        githubUrl: "https://github.com/kaustubha-chaturvedi/email-campaign"
+    },
+    {
         title: "Talk To Data",
         technologies: "Python, LangChain, Unsloth, Groq, Pandas, FastAPI",
         description: "Query CSV or SQL data sources using natural language with the help of an interactive API built on top of custom fine-tuned Llama-3.1-8b and LangChain.",
