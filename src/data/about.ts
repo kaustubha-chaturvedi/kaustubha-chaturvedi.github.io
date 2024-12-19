@@ -1,7 +1,7 @@
 import { Info } from '@/types/portfolioTypes';
 
 export const info: Info = {
-    picUrl: "/me.jpg",
+    picUrl: "/me.jpeg",
     name: "Kaustubha Chaturvedi",
     job: "Software Engineer @ Prishni",
     about: "I&apos;m a software engineer with a passion for building scalable and reliable systems.",
