@@ -4,34 +4,24 @@ export const positions: Position[] = [
     {
         name: "Software Engineer",
         skills: [
-            { category: "Programming Languages", items: ["Python", "C/C++", "JavaScript", "Golang", "SQL"] },
-            { category: "Frameworks & Libraries", items: ["Django", "FastAPI", "Express.js", "Flask", "NextJS", "TensorFlow", "Keras", "Pandas"] },
-            { category: "Backend", items: ["RESTful APIs", "GraphQL", "Microservices", "Serverless"] },
-            { category: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB", "DynamoDB", "Redis"] },
-            { category: "DevOps & Tools", items: ["Git", "Docker", "AWS", "Azure", "Kubernetes"] }
+            { category: "Programming Languages", items: ["Golang", "Python", "JavaScript", "C/C++", "SQL"] },
+            { category: "Backend Frameworks & Libraries", items: ["FastAPI", "Django", "Express.js", "Flask", "Next.js"] },
+            { category: "System Design & Architecture", items: ["RESTful APIs", "GraphQL", "Microservices", "Serverless Architectures"] },
+            { category: "Databases & Caching", items: ["PostgreSQL", "MongoDB", "MySQL", "DynamoDB", "Redis"] },
+            { category: "Cloud & DevOps", items: ["Docker", "AWS", "Azure", "Kubernetes", "Git"] }
         ],
         cvUrl: "/resume_py.pdf"
     },
     {
         name: "AI / ML Engineer",
         skills: [
-            { category: "Programming Languages", items: ["Python", "C/C++", "JavaScript", "Golang", "SQL"] },
-            { category: "Frameworks & Libraries", items: ["TensorFlow", "Keras", "PyTorch", "CrewAI", "Serper", "Scikit-learn", "FastAPI", "LangChain", "Groq", "Deepgram", "OpenCV"] },
-            { category: "AI/ML", items: ["Data Preprocessing", "Feature Engineering", "Model Evaluation", "NLP", "Generative AI", "RAG"] },
-            { category: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB", "DynamoDB", "Redis", "ChromaDB"] },
-            { category: "DevOps & Tools", items: ["Git", "Docker", "AWS", "Azure", "Kubernetes", "GitLab"] }
+            { category: "Programming Languages", items: ["Python", "Golang", "C/C++", "JavaScript", "SQL"] },
+            { category: "ML & Deep Learning Frameworks", items: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "OpenCV"] },
+            { category: "Generative AI & Tooling", items: ["LangChain", "CrewAI", "RAG", "Deepgram", "Serper", "Groq"] },
+            { category: "ML Concepts & Techniques", items: ["NLP", "Generative AI", "Feature Engineering", "Model Evaluation", "Data Preprocessing"] },
+            { category: "Databases & Vector Stores", items: ["PostgreSQL", "MongoDB", "DynamoDB", "ChromaDB", "Redis"] },
+            { category: "DevOps & MLOps Tools", items: ["Docker", "AWS", "Azure", "Kubernetes", "Git", "GitLab"] }
         ],
         cvUrl: "/resume_ml.pdf"
-    },
-    {
-        name: "Data Engineer",
-        skills: [
-            { category: "Programming Languages", items: ["Python", "C/C++", "JavaScript", "Golang", "SQL"] },
-            { category: "Frameworks & Libraries", items: ["TensorFlow", "Keras", "PyTorch", "Scikit-learn", "FastAPI", "Flask", "Pandas"] },
-            { category: "Data Tools", items: ["Power BI", "Azure Data Factory", "Azure SQL", "Data Lake", "ETL", "SQL Queries", "Data Warehousing"] },
-            { category: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB", "DynamoDB", "Redis", "ChromaDB"] },
-            { category: "DevOps & Tools", items: ["Git", "Docker", "AWS", "Azure", "Kubernetes", "Azure Storage Services"] }
-        ],
-        cvUrl: "/resume_ds.pdf"
-    },
+    }
 ];
