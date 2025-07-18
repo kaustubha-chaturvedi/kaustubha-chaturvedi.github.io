@@ -20,7 +20,7 @@ export default function Portfolio() {
           <ThemeSwitcher />
         </div>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="space-y-4 text-center md:text-justify">
+          <div className="space-y-4 text-center md:text-justify justify-content-center flex flex-col items-center">
             {/* Circular Profile Photo */}
             <Image
               src={info.picUrl} // Adjust the image path as needed
@@ -49,10 +49,10 @@ export default function Portfolio() {
                 </a>
               </Button>
             </div>
+            <SkillsSection positions={positions} />
           </div>
           <ExperienceSection experiences={experiences} />
         </div>
-        <SkillsSection positions={positions} />
         <ProjectsSection projects={projects} />
       </div>
     </div>

@@ -5,6 +5,7 @@ export const experiences: Experience[] = [
     title: "Software Development Engineer II",
     company: "WebCue",
     period: "Jan 2025 - Present",
+    location: "Mohali, India",
     technologies: "GoLang, FastAPI, NodeJS, NextJS, PostgreSQL, MongoDB",
     description: [
       "Architected and developed scalable products for ad tracking and revenue analytics, supporting high-throughput data pipelines.",
@@ -16,6 +17,7 @@ export const experiences: Experience[] = [
     title: "Backend Developer",
     company: "Prishni",
     period: "Nov 2023 - Dec 2024",
+    location: "Remote",
     technologies: "Django, FastAPI, PostgreSQL, Azure, Docker",
     description: [
       "Refactored critical backend services, reducing page load times by 3x and improving backend response time under high concurrency.",
@@ -27,6 +29,7 @@ export const experiences: Experience[] = [
     title: "App Development Lead",
     company: "Undigitally",
     period: "Jan - Oct 2023",
+    location: "Remote",
     technologies: "Flutter, Firebase, FastAPI, Azure SQL",
     description: [
       "Led backend development for a cross-platform mobile app, improving API latency by 30% through architectural improvements.",
@@ -37,6 +40,7 @@ export const experiences: Experience[] = [
     title: "Web Development Intern",
     company: "Police HQ, Bhopal",
     period: "Jul - Nov 2021",
+    location: "Bhopal, India",
     technologies: "Django, MariaDB, Docker, Self-Hosted Server",
     description: [
       "Designed, developed, and deployed a high-availability web portal for the India Covid Help Group with 0% downtime during peak usage.",
