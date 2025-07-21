@@ -25,6 +25,7 @@ export type Experience = {
     period: string;
     technologies: string;
     description: string[];
+    location?: string;
 };
 
 export type Project = {

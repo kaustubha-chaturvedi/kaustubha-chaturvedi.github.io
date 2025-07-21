@@ -9,9 +9,15 @@ export default function ExperienceSection({ experiences }: { experiences: Experi
       {experiences.map((exp, index) => (
         <Card key={index} className="dark:bg-gray-800">
           <CardHeader>
-            <CardTitle className='flex justify-between flex-wrap'>
-              <p>{exp.title} at {exp.company}</p>
-              <p className="text-sm dark:text-gray-400">{exp.period}</p>
+            <CardTitle className='flex w-full flex-wrap flex-col'>
+              <div className="flex justify-between">
+                <p>{exp.title}</p>
+                <p className="text-sm dark:text-gray-400">{exp.period}</p>
+              </div>
+              <div className="flex justify-between">
+                <p className="font-light">{exp.company}</p>
+                <p className="text-sm dark:text-gray-400">{exp.location}</p>
+              </div>
             </CardTitle>
             <CardDescription className="dark:text-gray-400">{exp.technologies}</CardDescription>
           </CardHeader>

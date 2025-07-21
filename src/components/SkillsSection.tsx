@@ -23,7 +23,7 @@ export default function SkillsSection({ positions }: { positions: Position[] }) 
   const [activeTab, setActiveTab] = useState(positions[0]?.name);
 
   return (
-    <div className="mb-12 relative">
+    <div className="mb-12 w-full">
       <h2 className="text-2xl font-semibold mb-4">Skills</h2>
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <div className="overflow-auto">
