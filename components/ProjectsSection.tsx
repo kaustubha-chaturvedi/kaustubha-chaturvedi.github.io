@@ -1,101 +1,92 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Activity } from "lucide-react"
+import { ArrowUpRight, Code2, ExternalLink } from "lucide-react"
 
-interface PersonalProject {
+interface Project {
   title: string
   description: string
   technologies: string[]
   github?: string
   demo?: string
-  status: string
 }
 
 interface ProjectsSectionProps {
-  projects: PersonalProject[]
+  projects: Project[]
 }
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "active":
-        return "bg-green-500/20 text-green-300 border-green-500/30"
-      case "completed":
-        return "bg-blue-500/20 text-blue-300 border-blue-500/30"
-      case "archived":
-        return "bg-gray-500/20 text-gray-300 border-gray-500/30"
-      default:
-        return "bg-slate-500/20 text-slate-300 border-slate-500/30"
-    }
-  }
-
   return (
-    <div className="space-y-6">
-      {/* Removed heading */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <Card className="bg-slate-900 border-slate-800 hover:border-slate-700 transition-colors h-full">
-              <CardContent className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-white flex-1">{project.title}</h3>
-                  <Badge variant="outline" className={`text-xs ${getStatusColor(project.status)}`}>
-                    <Activity className="w-3 h-3 mr-1" />
-                    {project.status}
-                  </Badge>
+    <div className="relative z-10 py-32">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-6xl font-black bg-gradient-to-r from-orange-400 via-blue-400 to-amber-400 bg-clip-text text-transparent">
+            Creations
+          </h2>
+        </div>
+
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          {projects.map((project, index) => (
+            <div
+              key={project.title}
+              className={`break-inside-avoid p-6 rounded-2xl backdrop-blur-sm border border-slate-700/50 hover:border-blue-400/50 transition-all duration-500 group cursor-pointer transform hover:scale-105`}
+              style={{ marginBottom: `${Math.random() * 20 + 10}px` }}
+            >
+              <div className="space-y-4">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-100 group-hover:text-orange-300 transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+                  {project.github && <a target="_blank" href={project.github}>
+                    <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-blue-300 transition-colors" />
+                  </a>
+                  }
                 </div>
 
-                <p className="text-slate-300 text-sm mb-4 leading-relaxed">{project.description}</p>
+                <p className="text-sm text-slate-200 leading-relaxed">{project.description}</p>
 
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {project.technologies.map((tech) => (
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 4).map((tech) => (
                     <Badge
                       key={tech}
-                      variant="secondary"
-                      className="bg-slate-800 text-slate-200 text-xs border border-slate-700"
+                      className="bg-slate-800/60 text-orange-300 border-orange-400/40 hover:bg-orange-600/20 transition-colors text-sm font-medium"
                     >
                       {tech}
                     </Badge>
                   ))}
                 </div>
 
-                <div className="flex space-x-2">
+                <div className="flex gap-2 pt-2">
                   {project.github && (
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
-                      className="border-slate-700 bg-transparent text-slate-300 hover:text-white hover:bg-slate-800 flex-1"
+                      className="h-8 px-3 text-xs text-blue-300 hover:bg-blue-600/20"
                       onClick={() => window.open(project.github, "_blank")}
                     >
-                      <Github className="w-4 h-4 mr-2" />
+                      <Code2 className="w-3 h-3 mr-1" />
                       Code
                     </Button>
                   )}
                   {project.demo && (
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
-                      className="border-slate-700 bg-transparent text-slate-300 hover:text-white hover:bg-slate-800 flex-1"
+                      className="h-8 px-3 text-xs text-orange-300 hover:bg-orange-600/20"
                       onClick={() => window.open(project.demo, "_blank")}
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                      Live
                     </Button>
                   )}
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

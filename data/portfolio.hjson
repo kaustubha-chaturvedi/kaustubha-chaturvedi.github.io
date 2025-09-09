@@ -1,0 +1,381 @@
+{
+  "profile": {
+    "picture": "/profile.png",
+    "name": "Kaustubha Chaturvedi",
+    "title": "Software Development Engineer II",
+    "titleShort": "SDE II",
+    "company": "WebCue",
+    "location": "Mohali, India",
+    "email": "kaustubhachaturvedi@gmail.com",
+    "linkedin": "https://linkedin.com/in/kaustubha-chaturvedi",
+    "github": "https://github.com/kaustubha-chaturvedi",
+    "bio": "I design backends that stay reliable under pressure. \nAnd I experiment with AI because FOMO told me it adds shareholder value.",
+    "resume": "/Kaustubha_Backend_Resume.pdf"
+  },
+  "resumes": [
+    {
+      "id": "backend",
+      "title": "Backend Engineer",
+      "description": "Designing and scaling backend systems, distributed services and high-performance APIs.",
+      "filename": "Kaustubha_Backend_Resume.pdf",
+      "skills": [
+        {
+          "name": "Golang",
+          "category": "Languages"
+        },
+        {
+          "name": "Python",
+          "category": "Languages"
+        },
+        {
+          "name": "SQL",
+          "category": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "category": "Languages"
+        },
+        {
+          "name": "FastAPI",
+          "category": "Backend"
+        },
+        {
+          "name": "Django",
+          "category": "Backend"
+        },
+        {
+          "name": "Express.js",
+          "category": "Backend"
+        },
+        {
+          "name": "Gin",
+          "category": "Backend"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "Database"
+        },
+        {
+          "name": "MongoDB",
+          "category": "Database"
+        },
+        {
+          "name": "Redis",
+          "category": "Database"
+        },
+        {
+          "name": "Elasticsearch",
+          "category": "Database"
+        },
+        {
+          "name": "Docker",
+          "category": "DevOps"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "DevOps"
+        },
+        {
+          "name": "AWS",
+          "category": "DevOps"
+        },
+        {
+          "name": "CI/CD",
+          "category": "DevOps"
+        }
+      ]
+    } 
+	// {
+    //   id: ai-ml
+    //   title: AI/ML Engineer
+    //   description: Developing AI-driven systems, custom ML models and intelligent data pipelines.
+    //   filename: Kaustubha_AI_ML_Resume.pdf
+    //   skills:
+    //   [
+    //     {name: "Python", category: "Languages"}
+    //     {name: "SQL", category: "Languages"}
+    //     {name: "R", category: "Languages"}
+    //     {name: "Scala", category: "Languages"}
+    //     {name: "TensorFlow", category: "AI/ML"}
+    //     {name: "PyTorch", category: "AI/ML"}
+    //     {name: "Scikit-learn", category: "AI/ML"}
+    //     {name: "Langchain", category: "AI/ML"}
+    //     {name: "Hugging Face", category: "AI/ML"}
+    //     {name: "OpenAI API", category: "AI/ML"}
+    //     {name: "FastAPI", category: "Backend"}
+    //     {name: "Django", category: "Backend"}
+    //     {name: "PostgreSQL", category: "Database"}
+    //     {name: "MongoDB", category: "Database"}
+    //     {name: "Vector DBs", category: "Database"}
+    //     {name: "Docker", category: "DevOps"}
+    //     {name: "MLOps", category: "DevOps"}
+    //   ]
+    // }
+  ],
+  "experiences": [
+    {
+      "id": "webcue",
+      "goesInResume": true,
+      "title": "Software Development Engineer II",
+      "company": "WebCue",
+      "location": "Mohali, India",
+      "period": "Jan 2025 - Present",
+      "type": "Full-time",
+      "technologies": [
+        "Golang",
+        "FastAPI",
+        "NodeJS",
+        "NextJS",
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "achievements": [
+        "Architected distributed ad tracking and analytics systems processing 10M+ daily events with real-time insights.",
+        "Led a team of 3 engineers, ensuring on-time delivery of high-quality features and system reliability.",
+        "Developed AI-driven creative generation platform leveraging in-house ML models, reducing manual workload by 80%."
+      ],
+      "projects": [
+        {
+          "name": "AdTracker/Launcher and Analytics Platform",
+          "description": "Real-time ad tracking and analytics system designed for massive event throughput.",
+          "technologies": [
+            "Golang",
+            "PostgreSQL",
+            "Redis",
+            "Kafka"
+          ],
+          "impact": "Achieved 95% improvement in tracking accuracy and 60% reduction in data latency.",
+          "highlights": [
+            "Microservices-based architecture for high-throughput processing",
+            "Live dashboards with multipe aggerated features.",
+            "Automation for scaling and data collection for multiple feed providers."
+          ]
+        },
+        {
+          "name": "AI Creative Generation System",
+          "description": "Automated creative generation system using custom AI models for ad content.",
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "Stable Diffusion",
+            "MongoDB"
+          ],
+          "impact": "Increased ad creative output by 3x and reduced production time by 80%.",
+          "highlights": [
+            "Fine-tuned existing models for brand-specific content generation",
+            "Scalable API supporting concurrent requests.",
+            "Implemented creative quality scoring."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prishi",
+      "goesInResume": true,
+      "title": "Backend Developer",
+      "company": "Prishi",
+      "location": "Remote",
+      "period": "Nov 2023 - Dec 2024",
+      "type": "Full-time",
+      "technologies": [
+        "Django",
+        "FastAPI",
+        "PostgreSQL",
+        "Azure",
+        "Docker"
+      ],
+      "achievements": [
+        "Refactored and optimized backend services, achieving 3x faster load times and reduced DB usage by 40%.",
+        "Delivered and maintained internal platforms with 100% uptime post-launch.",
+        "Introduced async workflows and caching strategies, increasing scalability under heavy load."
+      ],
+      "projects": [
+        {
+          "name": "E-commerce Backend Optimization",
+          "description": "Performance optimization and scalability improvements for e-commerce backend.",
+          "technologies": [
+            "Django",
+            "PostgreSQL",
+            "Redis",
+            "Celery"
+          ],
+          "impact": "Reduced server costs by 40% while improving load times by 3x.",
+          "highlights": [
+            "Async jobs handling 50K+ daily tasks",
+            "Optimized queries reducing response time by 80%",
+            "Advanced caching reducing DB load significantly"
+          ]
+        },
+        {
+          "name": "Internal Analytics Dashboard",
+          "description": "Role-based analytics dashboard enabling data-driven insights for operations.",
+          "technologies": [
+            "FastAPI",
+            "React",
+            "PostgreSQL",
+            "Docker"
+          ],
+          "impact": "Improved operational efficiency by 25% across teams.",
+          "highlights": [
+            "Real-time aggregation with 20+ metrics",
+            "Role-based access control for 100+ users",
+            "Interactive visualizations for actionable insights"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "undigitally",
+      "goesInResume": true,
+      "title": "App Development Lead",
+      "company": "Undigitally",
+      "location": "Remote",
+      "period": "Jan - Oct 2023",
+      "type": "Contract",
+      "technologies": [
+        "Flutter",
+        "Firebase",
+        "FastAPI",
+        "Azure SQL"
+      ],
+      "achievements": [
+        "Led mobile and backend development for an app serving 10K+ users, reducing backend latency by 35%.",
+        "Improved team workflows across design, frontend, and QA, reducing integration-related bugs by 50%."
+      ],
+      "projects": [
+        {
+          "name": "Cross-Platform Mobile App",
+          "description": "Offline-first social app with real-time chat and notifications.",
+          "technologies": [
+            "Flutter",
+            "Firebase",
+            "FastAPI",
+            "Azure SQL"
+          ],
+          "impact": "Achieved 10K+ installs with 4.5+ app store rating in the first month.",
+          "highlights": [
+            "Real-time messaging for 1000+ concurrent users",
+            "Offline-first design with reliable sync",
+            "Extensive API documentation cutting integration time by 50%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "police-hq",
+      "title": "Web Development Intern",
+      "company": "Police HQ, Bhopal",
+      "location": "Bhopal, India",
+      "period": "Jul - Nov 2021",
+      "type": "Internship",
+      "technologies": [
+        "Django",
+        "MariaDB",
+        "Docker",
+        "Self-Hosted Server"
+      ],
+      "achievements": [
+        "Developed and deployed high-availability Covid Help Portal serving 50K+ users with zero downtime.",
+        "Automated server deployments and improved infrastructure stability by 40%."
+      ],
+      "projects": [
+        {
+          "name": "Covid Help Portal",
+          "description": "Resource management and assistance platform for Covid-19 relief.",
+          "technologies": [
+            "Django",
+            "MariaDB",
+            "Bootstrap",
+            "Docker"
+          ],
+          "impact": "Supported thousands of users during peak pandemic with uninterrupted service.",
+          "highlights": [
+            "Hospital and medical supply tracking system",
+            "Secure authentication with RBAC",
+            "CI/CD pipeline reducing deployment time by 70%"
+          ]
+        }
+      ]
+    }
+  ],
+  "personalProjects": [
+    {
+      "title": "Email Campaign Manager",
+      "description": "Bulk email campaign system with subscriber management, scheduling, and analytics, powered by Celery task queues.",
+      "technologies": [
+        "Django",
+        "DRF",
+        "Celery",
+        "Redis",
+        "Docker"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/email-campaign",
+      "goesInResume": true
+    },
+    {
+      "title": "Talk To Data",
+      "description": "Query CSV or SQL sources using natural language with a FastAPI-based backend, LangChain, and fine-tuned LLaMA 3.1 models.",
+      "technologies": [
+        "Python",
+        "Langchain",
+        "Unsloth",
+        "Groq",
+        "Pandas",
+        "FastAPI"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/Talk-To-Data"
+    },
+    {
+      "title": "CRAG-BNS",
+      "description": "Built a context-aware retrieval system for Bharatiya Nyaya Sanhita 2023 using advanced grading and retrieval workflows.",
+      "technologies": [
+        "Python",
+        "Langchain",
+        "ChromaDB",
+        "Langgraph",
+        "Groq"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/crag-bns"
+    },
+    {
+      "title": "ATS Resume Reviewer",
+      "description": "ATS-powered resume reviewer that provides job-fit scores, highlights strengths and weaknesses, and benchmarks against market trends.",
+      "technologies": [
+        "Python",
+        "Groq",
+        "Serper",
+        "CrewAI",
+        "NextJS",
+        "FastAPI"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/ats-resume-reviewer"
+    },
+    {
+      "title": "Eva the Virtual Assistant",
+      "description": "Voice-controlled virtual assistant for automating workflows like file handling, scheduling, and web queries.",
+      "technologies": [
+        "Python",
+        "Langchain",
+        "Groq",
+        "Deepgram",
+        "OpenAI",
+        "OpenCV"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/Eva-The-Assistant"
+    },
+    {
+      "title": "Music-Based Encryption with Generative RNN",
+      "description": "Experimental encryption system where RNN-generated music patterns encode secure messages.",
+      "technologies": [
+        "Python",
+        "Keras",
+        "Pandas",
+        "NumPy",
+        "Flask",
+        "RNN-based model"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/Music-Based-Encryption-with-Generative-RNN",
+      "goesInResume": true
+    }
+  ]
+}
