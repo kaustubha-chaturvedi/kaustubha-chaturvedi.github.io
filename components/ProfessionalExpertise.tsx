@@ -1,7 +1,6 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 
 interface Resume {
   id: string
@@ -17,12 +16,12 @@ interface ProfessionalExpertiseProps {
 export default function ProfessionalExpertise({ resumes }: ProfessionalExpertiseProps) {
   return (
     <div className="lg:w-1/2 relative">
-      <div className="space-y-6 transform rotate-1 hover:rotate-0 transition-all duration-700">
+      <div className="space-y-6 transform lg:rotate-1 lg:hover:rotate-0 lg:transition-all duration-700">
         <div className="space-y-8">
           {resumes.map((resume, index) => (
             <div
               key={resume.id}
-              className={`relative p-8 rounded-3xl backdrop-blur-sm border-2 transition-all duration-500 hover:scale-105 transform ${index === 0 ? "rotate-2 hover:rotate-0" : "-rotate-1 hover:rotate-0"
+              className={`relative p-8 rounded-3xl backdrop-blur-sm border-2 transition-all duration-500 hover:scale-105 transform ${index === 0 ? "lg:rotate-2 lg:hover:rotate-0" : "lg:-rotate-1 lg:hover:rotate-0"
                 } ${index === 0
                   ? "bg-gradient-to-br from-blue-900/50 to-slate-800/30 border-blue-400/30 hover:border-blue-400/60"
                   : "bg-gradient-to-br from-orange-900/50 to-slate-800/30 border-orange-400/30 hover:border-orange-400/60"

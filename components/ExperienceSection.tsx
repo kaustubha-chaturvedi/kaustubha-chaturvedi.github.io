@@ -51,11 +51,8 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
               >
                 <div className="lg:w-1/4 flex justify-center">
                   <div
-                    className={`relative w-32 h-32 rounded-full bg-gradient-to-br ${
-                      index % 2 === 0 ? "from-blue-600/20 to-orange-600/20" : "from-orange-600/20 to-blue-600/20"
-                    } flex items-center justify-center transform ${
-                      index % 2 === 0 ? "rotate-12" : "-rotate-12"
-                    } hover:rotate-0 transition-transform duration-500`}
+                    className={`relative w-32 h-32 rounded-full bg-gradient-to-br ${index % 2 === 0 ? "from-blue-600/20 to-orange-600/20" : "from-orange-600/20 to-blue-600/20"
+                      } flex items-center justify-center`}
                   >
                     <div className="text-4xl font-black text-slate-100">{index + 1}</div>
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/5 to-transparent" />
@@ -66,7 +63,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
                   <div
                     className={`p-8 rounded-3xl backdrop-blur-sm border border-slate-700/50 bg-gradient-to-br ${
                       index % 2 === 0 ? "from-blue-900/30 to-orange-900/20" : "from-orange-900/30 to-blue-900/20"
-                    } transform ${index % 2 === 0 ? "rotate-1" : "-rotate-1"} hover:rotate-0 transition-all duration-500`}
+                    } transform ${index % 2 === 0 ? "lg:rotate-1" : "lg:-rotate-1"} hover:rotate-0 transition-all duration-500`}
                   >
                     <div className="space-y-6">
                       <div>
@@ -131,9 +128,8 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
                           </button>
 
                           <div
-                            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                              expandedExperience === exp.id ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-                            }`}
+                            className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedExperience === exp.id ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                              }`}
                           >
                             <div className="pt-6 space-y-6">
                               {exp.projects.map((project, projectIndex) => (
