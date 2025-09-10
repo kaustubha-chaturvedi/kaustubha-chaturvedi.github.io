@@ -3,8 +3,8 @@ import { JetBrains_Mono } from 'next/font/google'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
-  title: "Kaustubha Chatuvedi",
-  description: "Software Engineer @ Prishni",
+  title: "Kaustubha Chatuvedi's Portfolio",
+  description: "Software Engineer @ WebCue",
 };
 
 const jbm = JetBrains_Mono({

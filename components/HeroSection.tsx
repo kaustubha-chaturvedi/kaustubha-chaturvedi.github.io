@@ -21,28 +21,28 @@ interface HeroSectionProps {
 
 export default function HeroSection({ profile }: HeroSectionProps) {
   return (
-    <div className="hero-section lg:w-1/2 space-y-8">
+    <div className="lg:w-1/2 space-y-8">
       <div className="flex flex-col items-center gap-8 mb-8">
         <div className="relative">
       <div className="w-44 h-44 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-blue-600/30 to-slate-700/30 border-4 border-blue-500/60 overflow-hidden shadow-2xl shadow-blue-600/40 hover:shadow-orange-500/40 transition-all duration-500">
             <img
               src={profile.picture}
               alt={profile.name}
-        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
             />
           </div>
         </div>
       </div>
 
       <div className="relative text-center">
-        <h1 className="text-4xl lg:text-8xl font-black leading-none">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none">
           <span className="block text-slate-100">{profile.name.split(" ")[0]}</span>
           <span className="block text-blue-400 bg-gradient-to-r from-blue-400 via-orange-400 to-amber-400 bg-clip-text">
             {profile.name.split(" ")[1]}
           </span>
         </h1>
 
-  <div className="absolute -right-8 top-8 w-32 h-32 bg-gradient-to-br from-blue-600/20 to-orange-600/20 rounded-full blur-xl animate-pulse hero-blur hidden sm:block" />
+        <div className="absolute -right-4 md:-right-8 top-4 md:top-8 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-br from-blue-600/20 to-orange-600/20 rounded-full blur-xl animate-pulse" />
       </div>
 
       <div className="space-y-6 text-center">
@@ -54,7 +54,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
 
       <div className="flex flex-wrap justify-center gap-4">
         <Button
-          className="border-red-400/50 text-red-300 hover:bg-red-200/20 bg-slate-900/50 hover:text-red-200"
+          className="bg-slate-700 hover:bg-slate-600 text-white border-0 shadow-lg hover:shadow-slate-600/25 transition-all duration-300"
           onClick={() => window.open(`mailto:${profile.email}`, "_blank")}
         >
           <Mail className="w-5 h-5" />
