@@ -36,9 +36,9 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
               <div className="space-y-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="font-bold text-lg text-slate-100 group-hover:text-orange-300 transition-colors">
+                    <a href={project.github} target="_blank" className="font-bold text-lg text-slate-100 group-hover:text-orange-300 transition-colors">
                       {project.title}
-                    </h3>
+                    </a>
                   </div>
                   {project.github && <a target="_blank" href={project.github}>
                     <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-blue-300 transition-colors" />
