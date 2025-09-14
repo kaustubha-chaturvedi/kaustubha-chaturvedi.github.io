@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import Head from "next/head";
-import Script from "next/script";
-import '@/styles/globals.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: "Kaustubha Chatuvedi's Portfolio",
@@ -22,20 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-       <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XHBC2B7TVE"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XHBC2B7TVE');
-          `}
-        </Script>
-      </Head>
+     <GoogleAnalytics gaId="G-XHBC2B7TVE" />
       <body className={jbm.className}>
         {children}
       </body>
