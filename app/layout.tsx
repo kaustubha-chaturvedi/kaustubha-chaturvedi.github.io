@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
-import Head from "next/head";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
