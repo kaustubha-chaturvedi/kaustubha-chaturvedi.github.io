@@ -10,14 +10,14 @@
     "linkedin": "https://linkedin.com/in/kaustubha-chaturvedi",
     "github": "https://github.com/kaustubha-chaturvedi",
     "bio": "I design backends that stay reliable under pressure. \nAnd I experiment with AI because FOMO told me it adds shareholder value.",
-    "resume": "/Kaustubha_Backend_Resume.pdf"
+    "resume": "/resume.pdf"
   },
   "resumes": [
     {
       "id": "backend",
       "title": "Backend Engineer",
       "description": "Designing and scaling backend systems, distributed services and high-performance APIs.",
-      "filename": "Kaustubha_Backend_Resume.pdf",
+      "filename": "resume.pdf",
       "skills": [
         {
           "name": "Golang",
