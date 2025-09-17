@@ -376,6 +376,18 @@
       ],
       "github": "https://github.com/kaustubha-chaturvedi/Music-Based-Encryption-with-Generative-RNN",
       "goesInResume": true
-    }
+    },
+	{
+	  "title": "Chess Engine",
+	  "description": "A Python-based chess engine (≈800-900 rating at depth=3) using algorithms like Minimax, later improved with Negamax and α-β pruning, with a PyGame GUI and a WebAssembly (WASM) deployment.",
+	  "technologies": [
+	    "Python",
+	    "pyGame",
+	    "Negamax",
+	    "α-β Pruning",
+	  ],
+	  "github": "https://github.com/kaustubha-chaturvedi/chess-engine",
+	  "goesInResume": true
+	}
   ]
 }
