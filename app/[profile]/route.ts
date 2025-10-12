@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 const redirects: Record<string, string> = {
   ln: "https://www.linkedin.com/in/kaustubha-chaturvedi",
   gh: "https://github.com/kaustubhachaturvedi",
+  resume: "/resume.pdf",
 };
 
 export function GET(
