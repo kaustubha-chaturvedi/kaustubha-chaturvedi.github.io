@@ -2,9 +2,15 @@ import { NextResponse } from "next/server";
 
 const redirects: Record<string, string> = {
   ln: "https://www.linkedin.com/in/kaustubha-chaturvedi",
-  gh: "https://github.com/kaustubhachaturvedi",
-  resume: "/resume.pdf",
+  gh: "https://github.com/kaustubha-chaturvedi",
+  resume: "https://kaustubha.work/resume.pdf",
 };
+
+export async function generateStaticParams() {
+  return Object.keys(redirects).map((profile) => ({
+    profile,
+  }));
+}
 
 export function GET(
   request: Request,
@@ -12,7 +18,9 @@ export function GET(
 ) {
   const url = redirects[params.profile];
 
-  if (url) return NextResponse.redirect(url);
-  const baseUrl = new URL(request.url).origin;
-  return NextResponse.redirect(`${baseUrl}/lost`);
+  if (url) {
+    return NextResponse.redirect(url);
+  }
+  
+  return NextResponse.redirect("https://kaustubha.work/lost");
 }
