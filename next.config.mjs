@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  trailingSlash: true, // for GitHub Pages
   eslint: {
     ignoreDuringBuilds: true,
   },
