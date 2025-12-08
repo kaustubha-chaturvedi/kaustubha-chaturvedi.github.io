@@ -1,23 +1,22 @@
 "use client";
 
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-
 export default function RedirectPage() {
-  const searchParams = useSearchParams();
-  const raw = searchParams.get("url");
+  // This code only runs in the browser
+  if (typeof window !== "undefined") {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("url");
 
-  useEffect(() => {
-    if (!raw) return;
+    if (raw) {
+      let target = raw;
+      try {
+        target = decodeURIComponent(raw);
+      } catch {
+        // ignore decode errors, use raw
+      }
 
-    let target = raw;
-
-    try {
-      target = decodeURIComponent(raw);
-    } catch {
+      window.location.replace(target);
     }
+  }
 
-    window.location.replace(target);
-  }, [raw]);
   return null;
 }
