@@ -2,11 +2,12 @@ import fs from "fs";
 import path from "path";
 import HJSON from "hjson";
 
-import BackgroundEffectsWrapper from "@/components/BackgroundEffectsWrapper";
+import TopNavigation from "@/components/TopNavigation";
 import HeroSection from "@/components/HeroSection";
-import ProfessionalExpertise from "@/components/ProfessionalExpertise";
+import TechStackSection from "@/components/TechStackSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import Footer from "@/components/Footer";
 
 export default function Portfolio() {
   const filePath = path.join(process.cwd(), "data", "portfolio.hjson");
@@ -14,26 +15,19 @@ export default function Portfolio() {
   const portfolioData = HJSON.parse(file);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 overflow-hidden relative">
-      <BackgroundEffectsWrapper />
+    <div className="min-h-screen bg-[#0e0e0e] text-white overflow-hidden">
+      <TopNavigation />
 
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="w-full px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="relative">
-              <div className="relative pt-16">
-                <div className="flex flex-col lg:flex-row items-start gap-16">
-                  <HeroSection profile={portfolioData.profile} />
-                  <ProfessionalExpertise resumes={portfolioData.resumes} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <main className="blueprint-grid min-h-screen">
+        <HeroSection profile={portfolioData.profile} />
+        <ExperienceSection experiences={portfolioData.experiences} />
+        <TechStackSection
+          skills={portfolioData.resumes[0].skills}
+        />
+        <ProjectsSection projects={portfolioData.personalProjects} />
+      </main>
 
-      <ExperienceSection experiences={portfolioData.experiences} />
-      <ProjectsSection projects={portfolioData.personalProjects} />
+      <Footer />
     </div>
   );
 }

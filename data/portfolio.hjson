@@ -1,26 +1,27 @@
 {
   "profile": {
-    "picture": "/profile.png",
+    "picture": "/profile.jpeg",
     "name": "Kaustubha Chaturvedi",
-    "title": "Software Development Engineer II",
-    "titleShort": "SDE II",
-    "company": "",
-    "location": "Mohali, India",
+    "title": "Backend Engineer",
+    "titleShort": "Backend Engineer",
+    "company": "Turbohire",
+    "location": "Hyderabad, India",
     "email": "kaustubhachaturvedi@gmail.com",
     "linkedin": "https://linkedin.com/in/kaustubha-chaturvedi",
     "github": "https://github.com/kaustubha-chaturvedi",
-    "bio": "I design backends that stay reliable under pressure. \nAnd I experiment with AI because FOMO told me it adds shareholder value.",
-    "resume": "/resume.pdf"
+    "bio": "Backend engineer with 3+ years building scalable APIs, distributed systems, and production-grade infrastructure. Specializing in Python, Go, and cloud-native technologies.",
+    "resume": "/Kaustubha_Resume.pdf",
+    "phone": "+91 79873 57758"
   },
   "resumes": [
     {
       "id": "backend",
       "title": "Backend Engineer",
-      "description": "Designing and scaling backend systems, distributed services and high-performance APIs.",
-      "filename": "resume.pdf",
+      "description": "Building scalable APIs, distributed systems, and high-performance backends with strong focus on reliability and performance.",
+      "filename": "Kaustubha_Resume.pdf",
       "skills": [
         {
-          "name": "Golang",
+          "name": "Go",
           "category": "Languages"
         },
         {
@@ -36,6 +37,10 @@
           "category": "Languages"
         },
         {
+          "name": "C#",
+          "category": "Languages"
+        },
+        {
           "name": "FastAPI",
           "category": "Backend"
         },
@@ -44,75 +49,121 @@
           "category": "Backend"
         },
         {
-          "name": "Express.js",
-          "category": "Backend"
-        },
-        {
           "name": "Gin",
           "category": "Backend"
         },
         {
-          "name": "PostgreSQL",
-          "category": "Database"
+          "name": "REST APIs",
+          "category": "Backend"
         },
         {
-          "name": "MongoDB",
-          "category": "Database"
+          "name": "React",
+          "category": "Frontend"
+        },
+        {
+          "name": "Flutter",
+          "category": "Frontend"
+        },
+        {
+          "name": "Next.js",
+          "category": "Frontend"
+        },
+        {
+          "name": "React Native",
+          "category": "Frontend"
+        }
+        {
+          "name": "PostgreSQL",
+          "category": "Databases"
         },
         {
           "name": "Redis",
-          "category": "Database"
+          "category": "Databases"
         },
         {
-          "name": "Elasticsearch",
-          "category": "Database"
+          "name": "MongoDB",
+          "category": "Databases"
         },
         {
-          "name": "Docker",
-          "category": "DevOps"
+          "name": "ClickHouse",
+          "category": "Databases"
         },
         {
-          "name": "Kubernetes",
-          "category": "DevOps"
+          "name": "Distributed Systems",
+          "category": "Systems"
+        },
+        {
+          "name": "Concurrency",
+          "category": "Systems"
+        },
+        {
+          "name": "Async Processing",
+          "category": "Systems"
         },
         {
           "name": "AWS",
-          "category": "DevOps"
+          "category": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "category": "Cloud"
+        },
+        {
+          "name": "Docker",
+          "category": "Cloud"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "Cloud"
+        },
+        {
+          "name": "Firebase",
+          "category": "Cloud"
         },
         {
           "name": "CI/CD",
-          "category": "DevOps"
+          "category": "Cloud"
         }
       ]
-    } 
-	// {
-    //   id: ai-ml
-    //   title: AI/ML Engineer
-    //   description: Developing AI-driven systems, custom ML models and intelligent data pipelines.
-    //   filename: Kaustubha_AI_ML_Resume.pdf
-    //   skills:
-    //   [
-    //     {name: "Python", category: "Languages"}
-    //     {name: "SQL", category: "Languages"}
-    //     {name: "R", category: "Languages"}
-    //     {name: "Scala", category: "Languages"}
-    //     {name: "TensorFlow", category: "AI/ML"}
-    //     {name: "PyTorch", category: "AI/ML"}
-    //     {name: "Scikit-learn", category: "AI/ML"}
-    //     {name: "Langchain", category: "AI/ML"}
-    //     {name: "Hugging Face", category: "AI/ML"}
-    //     {name: "OpenAI API", category: "AI/ML"}
-    //     {name: "FastAPI", category: "Backend"}
-    //     {name: "Django", category: "Backend"}
-    //     {name: "PostgreSQL", category: "Database"}
-    //     {name: "MongoDB", category: "Database"}
-    //     {name: "Vector DBs", category: "Database"}
-    //     {name: "Docker", category: "DevOps"}
-    //     {name: "MLOps", category: "DevOps"}
-    //   ]
-    // }
+    }
   ],
   "experiences": [
+    {
+      "id": "turbohire",
+      "goesInResume": true,
+      "title": "Integration Engineer",
+      "company": "Turbohire",
+      "location": "Hyderabad, India",
+      "period": "Mar 2026 - Present",
+      "type": "Full-time",
+      "technologies": [
+        "C#",
+        "JavaScript",
+        "Azure"
+      ],
+      "achievements": [
+        "Worked on integrating TurboHire with external HRMS systems, enabling sync across hiring workflows.",
+        "Configured and debugged no-code integration workflows, handling data mapping and API-level issues during client onboarding."
+      ],
+      "projects": [
+        {
+          "name": "HRMS Integration Platform",
+          "description": "Multi-system integration enabling seamless data sync across hiring platforms.",
+          "technologies": [
+            "C#",
+            "JavaScript",
+            "Azure",
+            "REST APIs"
+          ],
+          "impact": "Reduced integration time by 60% for enterprise clients.",
+          "highlights": [
+            "No-code workflow configuration",
+            "Real-time data mapping and validation",
+            "Error handling and retry mechanisms"
+          ]
+        }
+      ]
+    },
     {
       "id": "webcue",
       "goesInResume": true,
@@ -123,78 +174,92 @@
       "type": "Full-time",
       "technologies": [
         "Golang",
+        "Python",
         "FastAPI",
-        "NodeJS",
-        "NextJS",
         "PostgreSQL",
-        "MongoDB"
+        "ClickHouse",
+        "MongoDB",
+        "Redis",
+        "AWS",
+        "Kubernetes",
+        "Docker",
+        "Prometheus"
       ],
       "achievements": [
-        "Architected distributed ad tracking and analytics systems processing 10k+ daily events with real-time insights.",
-        "Led a team of 3 engineers, ensuring on-time delivery of high-quality features and system reliability.",
-        "Developed AI-driven creative generation platform leveraging in-house ML models, reducing manual workload by 80%."
+        "Architected backend services for analytics platform processing 10K+ daily events, leveraging ClickHouse for high-performance OLAP queries.",
+        "Led development of event ingestion and analytics pipelines ensuring reliable data flow, consistency, and scalable API design.",
+        "Designed and deployed cloud-native infrastructure on AWS (EC2, Lambda, S3, Kubernetes), improving observability and production stability."
       ],
       "projects": [
         {
-          "name": "AdTracker/Launcher and Analytics Platform",
-          "description": "Real-time ad tracking and analytics system designed for massive event throughput.",
+          "name": "Event Ingestion & Analytics Pipeline",
+          "description": "High-throughput event processing system with real-time analytics and OLAP queries.",
           "technologies": [
             "Golang",
             "PostgreSQL",
-            "Redis",
-            "Kafka"
+            "ClickHouse",
+            "AWS"
           ],
-          "impact": "Achieved 95% improvement in tracking accuracy and 60% reduction in data latency.",
+          "impact": "Achieved 95% accuracy in event tracking with sub-second query latency.",
           "highlights": [
-            "Microservices-based architecture for high-throughput processing",
-            "Live dashboards with multipe aggerated features.",
-            "Automation for scaling and data collection for multiple feed providers."
+            "Microservices-based architecture handling 10K+ daily events",
+            "ClickHouse optimization for complex aggregations",
+            "Real-time dashboards with multi-dimensional metrics"
           ]
         },
         {
-          "name": "AI Creative Generation System",
-          "description": "Automated creative generation system using custom AI models for ad content.",
+          "name": "Cloud-Native Infrastructure",
+          "description": "Production infrastructure on AWS with optimized observability and auto-scaling.",
           "technologies": [
-            "Python",
-            "FastAPI",
-            "Stable Diffusion",
-            "MongoDB"
+            "AWS",
+            "Kubernetes",
+            "Docker",
+            "Prometheus"
           ],
-          "impact": "Increased ad creative output by 3x and reduced production time by 80%.",
+          "impact": "Improved production stability by 40% with automated scaling.",
           "highlights": [
-            "Fine-tuned existing models for brand-specific content generation",
-            "Scalable API supporting concurrent requests.",
-            "Implemented creative quality scoring."
+            "Kubernetes deployment with auto-scaling policies",
+            "Structured logging and distributed tracing",
+            "Infrastructure-as-Code approach"
           ]
         }
       ]
     },
-    {
-      "id": "prishi",
+        {
+      "id": "prishni",
       "goesInResume": true,
       "title": "Backend Developer",
-      "company": "Prishi",
+      "company": "Prishni",
       "location": "Remote",
       "period": "Nov 2023 - Dec 2024",
       "type": "Full-time",
       "technologies": [
+        "Python",
         "Django",
         "FastAPI",
         "PostgreSQL",
+        "Redis",
+        "Celery",
+        "Docker",
+        "AWS",
         "Azure",
-        "Docker"
+        "CI/CD",
+        "React",
+        "REST APIs"
       ],
       "achievements": [
-        "Refactored and optimized backend services, achieving 3x faster load times and reduced DB usage by 40%.",
-        "Delivered and maintained internal platforms with 100% uptime post-launch.",
-        "Introduced async workflows and caching strategies, increasing scalability under heavy load."
+        "Refactored Django and FastAPI services improving API response time by 3x and reducing database load by 40%.",
+        "Designed and maintained distributed async task processing system using Redis + Celery, handling peak loads of 50K background jobs/day with retry safety and failure handling.",
+        "Built backend architecture for Analytics Dashboard implementing secure role-based access control for multi-user data access.",
+        "Containerized services using Docker and implemented CI/CD pipelines across AWS and Azure environments."
       ],
       "projects": [
         {
           "name": "E-commerce Backend Optimization",
-          "description": "Performance optimization and scalability improvements for e-commerce backend.",
+          "description": "Performance optimization and scalability improvements for e-commerce services.",
           "technologies": [
             "Django",
+            "FastAPI",
             "PostgreSQL",
             "Redis",
             "Celery"
@@ -230,17 +295,23 @@
       "title": "App Development Lead",
       "company": "Undigitally",
       "location": "Remote",
-      "period": "Jan - Oct 2023",
+      "period": "Jan 2023 - Oct 2023",
       "type": "Contract",
       "technologies": [
-        "Flutter",
-        "Firebase",
+        "Python",
         "FastAPI",
-        "Azure SQL"
+        "Django",
+        "AWS",
+        "Firebase",
+        "Flutter",
+        "Azure SQL",
+        "REST APIs"
       ],
       "achievements": [
-        "Led mobile and backend development for an app serving 10K+ users, reducing backend latency by 35%.",
-        "Improved team workflows across design, frontend, and QA, reducing integration-related bugs by 50%."
+        "Designed FastAPI backend powering mobile application used by 5K+ users with optimized latency and efficient query handling.",
+        "Developed real-time chat and offline-first backend services with secure authentication and scalable API endpoints.",
+        "Deployed backend infrastructure on AWS and Firebase with structured logging and monitoring support.",
+        "Led backend feature delivery and coordinated API design with frontend and mobile teams."
       ],
       "projects": [
         {
@@ -271,8 +342,11 @@
       "technologies": [
         "Django",
         "MariaDB",
+        "Bootstrap",
         "Docker",
-        "Self-Hosted Server"
+        "Self-Hosted Server",
+        "CI/CD",
+        "RBAC"
       ],
       "achievements": [
         "Developed and deployed high-availability Covid Help Portal serving 50K+ users with zero downtime.",
@@ -299,6 +373,30 @@
     }
   ],
   "personalProjects": [
+    {
+      "title": "TraceLens",
+      "description": "System to analyze application logs and traces to identify anomalies and root causes using LLM-based reasoning to correlate events and highlight failure patterns.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Redis",
+        "LLM APIs"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/traceLens",
+      "goesInResume": true
+    },
+    {
+      "title": "Pulse – Durable Job Processing",
+      "description": "High-performance job processing system in Go with in-memory dispatch and PostgreSQL-backed durability, implementing at-least-once execution semantics.",
+      "technologies": [
+        "Golang",
+        "PostgreSQL",
+        "Worker Pools",
+        "Concurrency"
+      ],
+      "github": "https://github.com/kaustubha-chaturvedi/pulse",
+      "goesInResume": true
+    },
     {
       "title": "Email Campaign Manager",
       "description": "Bulk email campaign system with subscriber management, scheduling, and analytics, powered by Celery task queues.",
@@ -327,7 +425,7 @@
     },
     {
       "title": "CRAG-BNS",
-      "description": "Built a context-aware retrieval system for Bharatiya Nyaya Sanhita 2023 using advanced grading and retrieval workflows.",
+      "description": "Context-aware retrieval system for Bharatiya Nyaya Sanhita 2023 using advanced grading and retrieval workflows.",
       "technologies": [
         "Python",
         "Langchain",
@@ -338,56 +436,16 @@
       "github": "https://github.com/kaustubha-chaturvedi/crag-bns"
     },
     {
-      "title": "ATS Resume Reviewer",
-      "description": "ATS-powered resume reviewer that provides job-fit scores, highlights strengths and weaknesses, and benchmarks against market trends.",
+      "title": "Chess Engine",
+      "description": "Python-based chess engine (~800-900 rating at depth=3) using Minimax, Negamax and α-β pruning with PyGame GUI.",
       "technologies": [
         "Python",
-        "Groq",
-        "Serper",
-        "CrewAI",
-        "NextJS",
-        "FastAPI"
+        "pyGame",
+        "Negamax",
+        "α-β Pruning"
       ],
-      "github": "https://github.com/kaustubha-chaturvedi/ats-resume-reviewer"
-    },
-    {
-      "title": "Eva the Virtual Assistant",
-      "description": "Voice-controlled virtual assistant for automating workflows like file handling, scheduling, and web queries.",
-      "technologies": [
-        "Python",
-        "Langchain",
-        "Groq",
-        "Deepgram",
-        "OpenAI",
-        "OpenCV"
-      ],
-      "github": "https://github.com/kaustubha-chaturvedi/Eva-The-Assistant"
-    },
-    {
-      "title": "Music-Based Encryption with Generative RNN",
-      "description": "Experimental encryption system where RNN-generated music patterns encode secure messages.",
-      "technologies": [
-        "Python",
-        "Keras",
-        "Pandas",
-        "NumPy",
-        "Flask",
-        "RNN-based model"
-      ],
-      "github": "https://github.com/kaustubha-chaturvedi/Music-Based-Encryption-with-Generative-RNN",
+      "github": "https://github.com/kaustubha-chaturvedi/chess-engine",
       "goesInResume": true
-    },
-	{
-	  "title": "Chess Engine",
-	  "description": "A Python-based chess engine (≈800-900 rating at depth=3) using algorithms like Minimax, later improved with Negamax and α-β pruning, with a PyGame GUI and a WebAssembly (WASM) deployment.",
-	  "technologies": [
-	    "Python",
-	    "pyGame",
-	    "Negamax",
-	    "α-β Pruning",
-	  ],
-	  "github": "https://github.com/kaustubha-chaturvedi/chess-engine",
-	  "goesInResume": true
-	}
+    }
   ]
 }

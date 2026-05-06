@@ -1,88 +1,122 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Download, Github, Linkedin, Mail, Map, MapPin } from "lucide-react"
+import { Download, Github, Linkedin, Mail } from "lucide-react"
 
 interface HeroSectionProps {
   profile: {
-    picture: string
     name: string
     title: string
-    titleShort: string
-    location: string
-    company: string
     bio: string
     email: string
     github: string
     linkedin: string
     resume: string
+    location: string
   }
 }
 
 export default function HeroSection({ profile }: HeroSectionProps) {
+  const [firstName, lastName] = profile.name.split(" ")
+
   return (
-    <div className="lg:w-1/2 space-y-8">
-      <div className="flex flex-col items-center gap-8 mb-8">
-        <div className="relative">
-      <div className="w-44 h-44 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-blue-600/30 to-slate-700/30 border-4 border-blue-500/60 overflow-hidden shadow-2xl shadow-blue-600/40 hover:shadow-orange-500/40 transition-all duration-500">
+    <section className="relative pt-28 sm:pt-32 pb-36 sm:pb-48 px-4 sm:px-8 md:px-12 max-w-screen-2xl mx-auto overflow-hidden" id="about">
+      <div className="grid grid-cols-12 gap-y-16 items-start relative z-10">
+        {/* Main Header Group */}
+        <div className="col-span-12 lg:col-span-8 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+          <div className="font-label text-accent/80 text-[9px] sm:text-[10px] tracking-[0.18em] sm:tracking-[0.35em] uppercase mb-8 sm:mb-12 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            <span className="w-12 h-px bg-accent/30 hidden lg:block"></span>
+            Structural integrity // 001
+          </div>
+          <h1 className="font-headline text-5xl sm:text-6xl md:text-[120px] font-black tracking-tight text-white leading-[0.9] md:leading-[0.85] mb-8 sm:mb-12">
+            {firstName}
+            <br />
+            {lastName}
+          </h1>
+          <div className="max-w-2xl mx-auto lg:mx-0">
+            <p className="text-white/60 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 sm:mb-10">{profile.bio}</p>
+
+            {/* Actions / Links */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-8">
+              <a
+                href={`mailto:${profile.email}`}
+                className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
+              >
+                <Mail className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
+                <span className="text-[8px] text-white/50 text-center">Email</span>
+              </a>
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
+              >
+                <Github className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
+                <span className="text-[8px] text-white/50 text-center">GitHub</span>
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
+              >
+                <Linkedin className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
+                <span className="text-[8px] text-white/50 text-center">LinkedIn</span>
+              </a>
+              <a
+                href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
+              >
+                <Download className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
+                <span className="text-[8px] text-white/50 text-center">Resume</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Profile Illustration / Grid Component */}
+        <div className="col-span-12 lg:col-span-4 flex justify-center lg:justify-end items-start relative mt-12 lg:mt-0">
+          <div className="relative w-full max-w-[320px] aspect-3/4 p-4 border border-white/10 subgrid">
+            {/* Technical Frame Accents */}
+            <div className="absolute -top-px -left-px w-8 h-8 border-t border-l border-accent"></div>
+            <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-accent"></div>
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: `repeating-linear-gradient(
+                  45deg,
+                  transparent,
+                  transparent 2px,
+                  rgba(212,175,55,0.1) 2px,
+                  rgba(212,175,55,0.1) 4px
+                )`,
+              }}
+            ></div>
             <img
-              src={profile.picture}
-              alt={profile.name}
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              alt="Professional Headshot"
+              className="w-full h-full object-cover"
+              src="/profile.jpeg"
             />
+            <div className="absolute -bottom-12 left-0 w-full flex justify-between items-center px-2">
+              <span className="text-[8px] text-white/30 tracking-widest uppercase">Status_Active</span>
+              <div className="flex gap-2">
+                <div className="w-2 h-2 rounded-full bg-accent/60"></div>
+                <div className="w-2 h-2 rounded-full bg-accent/40"></div>
+                <div className="w-2 h-2 rounded-full bg-accent/20"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="relative text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none">
-          <span className="block text-slate-100">{profile.name.split(" ")[0]}</span>
-          <span className="block text-blue-400 bg-gradient-to-r from-blue-400 via-orange-400 to-amber-400 bg-clip-text">
-            {profile.name.split(" ")[1]}
-          </span>
-        </h1>
-
-        <div className="absolute -right-4 md:-right-8 top-4 md:top-8 w-16 h-16 md:w-32 md:h-32 bg-gradient-to-br from-blue-600/20 to-orange-600/20 rounded-full blur-xl animate-pulse" />
+      {/* Scroll Indicator Line */}
+      <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+        <div className="w-px h-24 bg-linear-to-b from-white/20 via-white/10 to-transparent"></div>
+        <span className="font-label text-[8px] text-white/30 uppercase tracking-[0.25em] sm:tracking-[0.5em] rotate-90 origin-center translate-y-8">
+          Scroll
+        </span>
       </div>
-
-      <div className="space-y-6 text-center">
-        <p className="text-2xl text-orange-300 font-light tracking-wide flex justify-center gap-3">
-          {profile.titleShort}
-        </p>
-        <p className="text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto whitespace-pre-line">{profile.bio}</p>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-4">
-        <Button
-          className="bg-slate-700 hover:bg-slate-600 text-white border-0 shadow-lg hover:shadow-slate-600/25 transition-all duration-300"
-          onClick={() => window.open(`mailto:${profile.email}`, "_blank")}
-        >
-          <Mail className="w-5 h-5" />
-          Connect
-        </Button>
-        <Button
-          variant="outline"
-          className="border-blue-400/50 text-blue-300 hover:bg-blue-600/20 bg-slate-900/50 hover:text-blue-200"
-          onClick={() => window.open(profile.github, "_blank")}
-        >
-          <Github className="w-5 h-5" />
-        </Button>
-        <Button
-          variant="outline"
-          className="border-orange-400/50 text-orange-300 hover:bg-orange-600/20 bg-slate-900/50 hover:text-orange-200"
-          onClick={() => window.open(profile.linkedin, "_blank")}
-        >
-          <Linkedin className="w-5 h-5" />
-        </Button>
-        <Button
-          variant="outline"
-          className="border-pink-400/50 text-pink-300 hover:bg-pink-600/20 bg-slate-900/50 hover:text-pink-200"
-          onClick={() => window.open(profile.resume, "_blank")}
-        >
-          <Download className="w-5 h-5" />
-          Resume
-        </Button>
-      </div>
-    </div>
+    </section>
   )
 }

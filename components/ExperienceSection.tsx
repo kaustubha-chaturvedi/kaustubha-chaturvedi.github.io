@@ -1,10 +1,9 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Sparkles, ChevronDown, ChevronUp, Briefcase, Target, Zap } from "lucide-react"
-import { useState } from "react"
+import { KeyboardEvent, useState } from "react"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 
-interface Project {
+interface ExperienceProject {
   name: string
   description: string
   technologies: string[]
@@ -18,206 +17,293 @@ interface Experience {
   company: string
   period: string
   location: string
-  technologies: string[]
   achievements: string[]
-  projects?: Project[]
+  technologies: string[]
+  projects?: ExperienceProject[]
+  type?: string
 }
 
 interface ExperienceSectionProps {
   experiences: Experience[]
 }
 
-export default function ExperienceSection({ experiences }: ExperienceSectionProps) {
-  const [expandedExperience, setExpandedExperience] = useState<string | null>(null)
+function formatRange(experiences: Experience[]) {
+  if (!experiences.length) return "0000-0000"
+  const years = experiences
+    .map((exp) => exp.period.match(/\d{4}/g))
+    .flat()
+    .filter(Boolean)
+    .map(Number)
+  if (!years.length) return "0000-0000"
+  const min = Math.min(...years)
+  const max = Math.max(...years)
+  return `${min} - ${max}`
+}
 
-  const toggleProjects = (expId: string) => {
-    setExpandedExperience(expandedExperience === expId ? null : expId)
+export default function ExperienceSection({ experiences }: ExperienceSectionProps) {
+  const rangeText = formatRange(experiences)
+  const isOddExperienceCount = experiences.length % 2 === 1
+  const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null)
+  const [isSheetOpen, setIsSheetOpen] = useState(false)
+
+  const getLevelLabel = (index: number) => {
+    return `// LVL ${(experiences.length - index).toString().padStart(2, "0")}`
   }
 
-  return (
-    <div className="relative z-10 py-8 md:py-16 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="text-center mb-8 md:mb-12 lg:mb-20">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-blue-400 bg-gradient-to-r from-blue-400 via-orange-400 to-amber-400 bg-clip-text">
-            Journey
-          </h2>
+  const openExperienceProjects = (exp: Experience) => {
+    setSelectedExperience(exp)
+    setIsSheetOpen(true)
+  }
+
+  const getCardInteractions = (exp: Experience) => ({
+    role: "button" as const,
+    tabIndex: 0,
+    onClick: () => openExperienceProjects(exp),
+    onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault()
+        openExperienceProjects(exp)
+      }
+    },
+  })
+
+  const renderExperienceItem = (exp: Experience, index: number) => {
+    const titleClass = "font-headline font-black text-white uppercase tracking-tight wrap-break-word"
+    const metaClass = "font-label text-white/60 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] wrap-break-word"
+    const periodClass = "font-label text-white/40 text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word"
+    const stackChipClass = "text-[9px] sm:text-[10px] text-white/70 border border-white/10 px-2.5 sm:px-3 py-1 uppercase tracking-[0.15em] sm:tracking-[0.2em] break-all"
+
+    if (index === 0) {
+      return (
+        <div
+          key={exp.id}
+          {...getCardInteractions(exp)}
+          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
+            isOddExperienceCount ? "lg:col-span-12" : "lg:col-span-7 border-r"
+          }`}
+        >
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/60 tracking-wider wrap-break-word max-w-[55%] text-right">
+            {getLevelLabel(index)}
+          </div>
+          <span className="font-label text-accent text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word pr-20">
+            {exp.period}
+          </span>
+          <h3 className={`${titleClass} text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4`}>
+            {exp.title}
+          </h3>
+          <div className={`${metaClass} mb-6 sm:mb-8`}>
+            {exp.company}
+          </div>
+          <p className="font-body text-on-surface-variant max-w-xl leading-relaxed text-sm sm:text-base lg:text-lg font-light wrap-break-word">
+            {exp.achievements[0]}
+          </p>
+          <div className="mt-8 sm:mt-10 lg:mt-12 flex gap-2 sm:gap-3 flex-wrap">
+            {exp.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className={`${stackChipClass} text-accent border-accent/15`}>
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
+      )
+    }
 
-        <div className="space-y-8 md:space-y-16 lg:space-y-32">
-          {experiences.map((exp, index) => (
-            <div key={exp.id} className="relative">
-              <div
-                className={`flex flex-col lg:flex-row gap-6 md:gap-12 lg:gap-16 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-              >
-                <div className="lg:w-1/4 flex justify-center">
-                  <div
-                    className={`relative w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br ${
-                      index % 2 === 0 ? "from-blue-600/20 to-orange-600/20" : "from-orange-600/20 to-blue-600/20"
-                    } flex items-center justify-center transform lg:${
-                      index % 2 === 0 ? "rotate-12" : "-rotate-12"
-                    } hover:rotate-0 transition-transform duration-500`}
-                  >
-                    <div className="text-xl md:text-2xl lg:text-4xl font-black text-slate-100">{index + 1}</div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/5 to-transparent" />
-                  </div>
-                </div>
+    const layoutIndex = (index - 1) % 3
 
-                <div className="lg:w-3/4 w-full">
-                  <div
-                    className={`p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl lg:rounded-3xl backdrop-blur-sm border border-slate-700/50 bg-gradient-to-br ${
-                      index % 2 === 0 ? "from-blue-900/30 to-orange-900/20" : "from-orange-900/30 to-blue-900/20"
-                    } transform lg:${index % 2 === 0 ? "rotate-1" : "-rotate-1"} hover:rotate-0 transition-all duration-500`}
-                  >
-                    <div className="space-y-3 md:space-y-4 lg:space-y-6">
-                      <div>
-                        <h3 className="text-lg md:text-xl lg:text-3xl font-bold text-slate-100 mb-1 md:mb-2">
-                          {exp.title}
-                        </h3>
-                        <p className="text-base md:text-lg lg:text-xl text-orange-300 font-semibold mb-2 md:mb-3 lg:mb-4">
-                          {exp.company}
-                        </p>
+    if (layoutIndex === 0) {
+      return (
+        <div
+          key={exp.id}
+          {...getCardInteractions(exp)}
+          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors bg-white/2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
+            isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-5"
+          }`}
+        >
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+            {getLevelLabel(index)}
+          </div>
+          <span className={`${periodClass} pr-20`}>
+            {exp.period}
+          </span>
+          <h3 className={`${titleClass} text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4`}>
+            {exp.title}
+          </h3>
+          <div className={`${metaClass} mb-6 sm:mb-8`}>
+            {exp.company}
+          </div>
+          <p className="font-body text-on-surface-variant leading-relaxed font-light text-sm sm:text-base wrap-break-word">
+            {exp.achievements[0]}
+          </p>
+          <div className="mt-8 sm:mt-10 flex gap-2 sm:gap-3 flex-wrap">
+            {exp.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className={stackChipClass}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 md:gap-3 lg:gap-6 text-slate-300 mb-3 md:mb-4 lg:mb-6">
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-3 h-3 md:w-4 md:h-4" />
-                            <span className="text-xs md:text-sm lg:text-base">{exp.period}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                            <span className="text-xs md:text-sm lg:text-base">{exp.location}</span>
-                          </div>
-                        </div>
-                      </div>
+    if (layoutIndex === 1) {
+      return (
+        <div
+          key={exp.id}
+          {...getCardInteractions(exp)}
+          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
+            isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-8 border-r"
+          }`}
+        >
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+            {getLevelLabel(index)}
+          </div>
+          <span className={`${periodClass} pr-20`}>
+            {exp.period}
+          </span>
+          <h3 className={`${titleClass} text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4`}>
+            {exp.title}
+          </h3>
+          <div className={`${metaClass} mb-6 sm:mb-8`}>
+            {exp.company}
+          </div>
+          <p className="font-body text-on-surface-variant max-w-2xl leading-relaxed font-light text-sm sm:text-base wrap-break-word">
+            {exp.achievements[0]}
+          </p>
+          <div className="mt-8 sm:mt-10 flex gap-2 sm:gap-3 flex-wrap">
+            {exp.technologies.slice(0, 4).map((tech) => (
+              <span key={tech} className={stackChipClass}>
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
-                      <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2">
-                        {exp.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            className="bg-slate-800/60 text-blue-300 border-blue-400/40 hover:bg-blue-600/20 transition-colors text-xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <div className="space-y-2 md:space-y-3 lg:space-y-4">
-                        <h4 className="font-semibold flex items-center gap-2 text-sm md:text-base lg:text-lg text-orange-300">
-                          <Sparkles className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5" />
-                          Key Impact
-                        </h4>
-                        <div className="space-y-1.5 md:space-y-2 lg:space-y-3">
-                          {exp.achievements.map((achievement, idx) => (
-                            <div key={idx} className="flex items-start gap-2">
-                              <div className="w-1 h-1 md:w-1.5 md:h-1.5 lg:w-2 lg:h-2 rounded-full bg-gradient-to-r from-blue-400 to-orange-400 mt-1.5 md:mt-2 lg:mt-3 flex-shrink-0" />
-                              <span className="text-slate-200 leading-relaxed text-xs md:text-sm lg:text-base">
-                                {achievement}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {exp.projects && exp.projects.length > 0 && (
-                        <div className="border-t border-slate-600/30 pt-3 md:pt-4 lg:pt-6">
-                          <button
-                            onClick={() => toggleProjects(exp.id)}
-                            className="flex items-center justify-between w-full text-left group hover:text-orange-300 transition-colors"
-                          >
-                            <div className="flex items-center gap-2">
-                              <Briefcase className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 text-blue-400" />
-                              <span className="font-semibold text-sm md:text-base lg:text-lg text-slate-200 group-hover:text-orange-300">
-                                Company Projects ({exp.projects.length})
-                              </span>
-                            </div>
-                            {expandedExperience === exp.id ? (
-                              <ChevronUp className="w-4 h-4 text-slate-400 group-hover:text-orange-300 transition-colors" />
-                            ) : (
-                              <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-orange-300 transition-colors" />
-                            )}
-                          </button>
-
-                          <div
-                            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                              expandedExperience === exp.id ? "max-h-[1500px] opacity-100" : "max-h-0 opacity-0"
-                            }`}
-                          >
-                            <div className="pt-3 md:pt-4 lg:pt-6 space-y-3 md:space-y-4 lg:space-y-6">
-                              {exp.projects.map((project, projectIndex) => (
-                                <div
-                                  key={projectIndex}
-                                  className="p-3 md:p-4 lg:p-6 rounded-lg md:rounded-xl lg:rounded-2xl bg-slate-800/40 border border-slate-600/30 backdrop-blur-sm"
-                                >
-                                  <div className="space-y-2 md:space-y-3 lg:space-y-4">
-                                    <div>
-                                      <h5 className="text-base md:text-lg lg:text-xl font-bold text-slate-100 mb-1 md:mb-2">
-                                        {project.name}
-                                      </h5>
-                                      <p className="text-slate-300 leading-relaxed text-xs md:text-sm lg:text-base">
-                                        {project.description}
-                                      </p>
-                                    </div>
-
-                                    <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-2">
-                                      {project.technologies.map((tech) => (
-                                        <Badge
-                                          key={tech}
-                                          className="bg-slate-700/60 text-blue-300 border-blue-400/30 hover:bg-blue-600/20 transition-colors text-xs"
-                                        >
-                                          {tech}
-                                        </Badge>
-                                      ))}
-                                    </div>
-
-                                    <div className="space-y-2">
-                                      <div className="flex items-start gap-2">
-                                        <Target className="w-3 h-3 text-orange-400 mt-0.5 flex-shrink-0" />
-                                        <div>
-                                          <span className="font-medium text-orange-300 text-xs md:text-sm">
-                                            Impact:{" "}
-                                          </span>
-                                          <span className="text-slate-200 text-xs md:text-sm">{project.impact}</span>
-                                        </div>
-                                      </div>
-
-                                      <div className="space-y-1.5">
-                                        <div className="flex items-center gap-2">
-                                          <Zap className="w-3 h-3 text-blue-400" />
-                                          <span className="font-medium text-blue-300 text-xs md:text-sm">
-                                            Key Highlights:
-                                          </span>
-                                        </div>
-                                        <div className="ml-4 space-y-1">
-                                          {project.highlights.slice(0, 3).map((highlight, idx) => (
-                                            <div key={idx} className="flex items-start gap-1.5">
-                                              <div className="w-1 h-1 rounded-full bg-gradient-to-r from-blue-400 to-orange-400 mt-1.5 flex-shrink-0" />
-                                              <span className="text-slate-300 text-xs leading-relaxed">
-                                                {highlight}
-                                              </span>
-                                            </div>
-                                          ))}
-                                          {project.highlights.length > 3 && (
-                                            <div className="text-xs text-slate-400 ml-2.5">
-                                              +{project.highlights.length - 3} more highlights
-                                            </div>
-                                          )}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    return (
+      <div
+        key={exp.id}
+        {...getCardInteractions(exp)}
+        className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
+          isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-4"
+        }`}
+      >
+        <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+          {getLevelLabel(index)}
+        </div>
+        <span className={`${periodClass} pr-20`}>
+          {exp.period}
+        </span>
+        <h3 className={`${titleClass} text-lg sm:text-xl lg:text-2xl mb-3 sm:mb-4`}>
+          {exp.title}
+        </h3>
+        <div className={`${metaClass} mb-5 sm:mb-6`}>
+          {exp.company}
+        </div>
+        <p className="font-body text-on-surface-variant leading-relaxed font-light text-sm sm:text-base wrap-break-word">
+          {exp.achievements[0]}
+        </p>
+        <div className="mt-8 sm:mt-10 flex gap-2 sm:gap-3 flex-wrap">
+          {exp.technologies.slice(0, 4).map((tech) => (
+            <span key={tech} className={stackChipClass}>
+              {tech}
+            </span>
           ))}
         </div>
       </div>
-    </div>
+    )
+  }
+
+  return (
+    <section className="px-4 sm:px-6 md:px-12 py-20 sm:py-24 lg:py-32 border-t border-white/5 bg-[#0e0e0e]" id="experience">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="mb-12 sm:mb-16 lg:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
+          <div>
+            <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4 text-white uppercase wrap-break-word">
+              System_Chronology
+            </h2>
+            <p className="font-label text-[9px] sm:text-[10px] text-accent tracking-[0.2em] sm:tracking-[0.3em] lg:tracking-[0.4em] uppercase wrap-break-word">
+              Phase_Deployment_History // {rangeText}
+            </p>
+          </div>
+          <div className="h-px grow bg-white/5 hidden md:block mb-3 mx-12"></div>
+          <div className="font-label text-[8px] sm:text-[9px] text-white/30 tracking-[0.2em] sm:tracking-widest uppercase text-left md:text-right wrap-break-word">
+            Records found: {experiences.length.toString().padStart(2, "0")}
+            <br />
+            Encryption: AES_256
+          </div>
+        </div>
+
+        <div className="grid grid-cols-12 gap-0 border border-white/5">
+          {experiences.map((exp, index) => renderExperienceItem(exp, index))}
+        </div>
+      </div>
+
+      <Sheet
+        open={isSheetOpen}
+        onOpenChange={(open) => {
+          setIsSheetOpen(open)
+          if (!open) setSelectedExperience(null)
+        }}
+      >
+        <SheetContent
+          side="bottom"
+          onOpenAutoFocus={(event) => event.preventDefault()}
+          className="h-[75vh] max-h-[75vh] border-white/10 bg-[#0e0e0e] text-white p-0 overflow-hidden"
+        >
+          <div className="h-full overflow-y-auto">
+            <SheetHeader className="px-4 sm:px-6 md:px-12 py-5 sm:py-7 border-b border-white/10 pr-12 sm:pr-16">
+              <SheetTitle className="font-headline text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-white wrap-break-word">
+                {selectedExperience?.company ?? "Projects"}
+              </SheetTitle>
+              <SheetDescription className="font-label text-[9px] sm:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.25em] text-white/60 wrap-break-word">
+                {selectedExperience?.title} // {selectedExperience?.period}
+              </SheetDescription>
+            </SheetHeader>
+
+            <div className="px-4 sm:px-6 md:px-12 py-5 sm:py-8 space-y-4 sm:space-y-6">
+              {(selectedExperience?.projects?.length ?? 0) > 0 ? (
+                selectedExperience?.projects?.map((project) => (
+                  <div key={project.name} className="border border-white/10 p-4 sm:p-6 bg-white/2 overflow-hidden">
+                    <h4 className="font-headline text-lg sm:text-xl text-white uppercase tracking-tight mb-3 wrap-break-word">
+                      {project.name}
+                    </h4>
+                    <p className="font-body text-white/75 leading-relaxed mb-4 text-sm sm:text-base wrap-break-word">
+                      {project.description}
+                    </p>
+                    <p className="font-body text-accent/90 text-xs sm:text-sm leading-relaxed mb-5 wrap-break-word">
+                      {project.impact}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <span
+                          key={`${project.name}-${tech}`}
+                          className="text-[9px] sm:text-[10px] text-white/80 border border-white/20 px-2.5 sm:px-3 py-1 uppercase tracking-[0.12em] sm:tracking-[0.2em] break-all"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <ul className="space-y-2">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="font-body text-white/70 text-xs sm:text-sm leading-relaxed wrap-break-word">
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <div className="border border-white/10 p-6 bg-white/2">
+                  <p className="font-body text-white/70 leading-relaxed">
+                    No company projects listed for this experience yet.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+    </section>
   )
 }

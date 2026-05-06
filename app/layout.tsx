@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
      <GoogleAnalytics gaId="G-XHBC2B7TVE" />
-      <body className={jbm.className}>
+      <body>
         {children}
       </body>
     </html>
