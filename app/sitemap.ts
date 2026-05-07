@@ -14,22 +14,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${seo.siteUrl}/gh`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
-      url: `${seo.siteUrl}/ln`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.4,
-    },
-    {
       url: `${seo.siteUrl}/resume`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.8,
     },
   ]
 }
