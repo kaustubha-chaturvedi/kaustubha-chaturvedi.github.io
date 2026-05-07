@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme {
+  --color-accent: #D4AF37;
+  --color-accent-light: #E6C65C;
+  --color-accent-muted: #9A7F28;
+  --color-accent-foreground: #0E0E0E;
+}
+
 :root {
   --accent: #D4AF37;
   --background: #0e0e0e;

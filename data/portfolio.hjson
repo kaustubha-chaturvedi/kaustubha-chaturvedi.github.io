@@ -1,4 +1,46 @@
 {
+  "seo": {
+    "siteUrl": "https://kaustubha.work",
+    "siteName": "Kaustubha Chaturvedi Portfolio",
+    "locale": "en_US",
+    "locationCity": "Hyderabad",
+    "locationCountryCode": "IN",
+    "ogImage": "/profile.jpeg",
+    "titleDefault": "Kaustubha Chaturvedi | Backend Engineer Portfolio",
+    "titleTemplate": "%s | Kaustubha Chaturvedi",
+    "description": "Kaustubha Chaturvedi is a Backend Engineer building scalable APIs, distributed systems, and cloud-native infrastructure with Go, Python, FastAPI, AWS, and Kubernetes.",
+    "keywords": [
+      "Kaustubha Chaturvedi",
+      "Backend Engineer",
+      "Golang Developer",
+      "Python Developer",
+      "FastAPI",
+      "Distributed Systems",
+      "AWS",
+      "Kubernetes",
+      "Hyderabad"
+    ],
+    "twitterTitle": "Kaustubha Chaturvedi | Backend Engineer",
+    "twitterDescription": "Backend Engineer specializing in Go, Python, distributed systems, and cloud-native backend architecture.",
+    "homeTitle": "Backend Engineer, Go & Python Specialist",
+    "homeDescription": "Kaustubha Chaturvedi is a Backend Engineer in Hyderabad with 3+ years of experience in scalable APIs, distributed systems, cloud infrastructure, and high-performance data platforms.",
+    "homeCanonical": "https://kaustubha.work",
+    "whoIsHeading": "Who Is Kaustubha Chaturvedi?",
+    "whoIsSummary": "Kaustubha Chaturvedi is a backend engineer focused on building reliable, scalable, and high-performance software systems. He has professional experience delivering distributed backend services, production cloud infrastructure, analytics pipelines, and API integrations across Go, Python, C#, FastAPI, PostgreSQL, ClickHouse, AWS, and Kubernetes.",
+    "hiringSummary": "For teams hiring backend engineers who can own system design, performance optimization, and production reliability, Kaustubha brings strong hands-on experience in building and shipping business-critical systems.",
+    "knowsAbout": [
+      "Backend Engineering",
+      "Golang",
+      "Python",
+      "FastAPI",
+      "Distributed Systems",
+      "PostgreSQL",
+      "ClickHouse",
+      "AWS",
+      "Kubernetes",
+      "API Architecture"
+    ]
+  },
   "profile": {
     "picture": "/profile.jpeg",
     "name": "Kaustubha Chaturvedi",

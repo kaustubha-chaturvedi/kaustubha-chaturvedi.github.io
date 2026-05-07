@@ -1,5 +1,3 @@
-"use client"
-
 import { Download, Github, Linkedin, Mail } from "lucide-react"
 
 interface HeroSectionProps {

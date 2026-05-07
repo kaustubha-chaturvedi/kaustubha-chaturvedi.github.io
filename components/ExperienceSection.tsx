@@ -45,6 +45,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
   const isOddExperienceCount = experiences.length % 2 === 1
   const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null)
   const [isSheetOpen, setIsSheetOpen] = useState(false)
+  const desktopSpanPattern = ["lg:col-span-8", "lg:col-span-4", "lg:col-span-7", "lg:col-span-5"]
 
   const getLevelLabel = (index: number) => {
     return `// LVL ${(experiences.length - index).toString().padStart(2, "0")}`
@@ -68,24 +69,24 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
   })
 
   const renderExperienceItem = (exp: Experience, index: number) => {
-    const titleClass = "font-headline font-black text-white uppercase tracking-tight wrap-break-word"
-    const metaClass = "font-label text-white/60 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] wrap-break-word"
-    const periodClass = "font-label text-white/40 text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word"
-    const stackChipClass = "text-[9px] sm:text-[10px] text-white/70 border border-white/10 px-2.5 sm:px-3 py-1 uppercase tracking-[0.15em] sm:tracking-[0.2em] break-all"
+    const titleClass = "font-headline font-black text-white uppercase tracking-tight wrap-break-word transition-colors group-hover:text-accent"
+    const metaClass = "font-label text-white/60 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] wrap-break-word transition-colors group-hover:text-accent/90"
+    const periodClass = "font-label text-accent/80 text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word transition-colors group-hover:text-accent-light"
+    const stackChipClass = "text-[9px] sm:text-[10px] text-accent/80 border border-accent/20 px-2.5 sm:px-3 py-1 uppercase tracking-[0.15em] sm:tracking-[0.2em] break-all transition-colors group-hover:text-accent-light group-hover:border-accent/50"
 
     if (index === 0) {
       return (
         <div
           key={exp.id}
           {...getCardInteractions(exp)}
-          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
+          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group bg-white/1.5 hover:bg-[#1a1a1a] transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
             isOddExperienceCount ? "lg:col-span-12" : "lg:col-span-7 border-r"
           }`}
         >
-          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/60 tracking-wider wrap-break-word max-w-[55%] text-right">
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/60 tracking-wider wrap-break-word max-w-[55%] text-right transition-colors group-hover:text-accent-light">
             {getLevelLabel(index)}
           </div>
-          <span className="font-label text-accent text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word pr-20">
+          <span className="font-label text-accent/80 text-[10px] sm:text-[11px] mb-6 sm:mb-8 block tracking-[0.2em] wrap-break-word pr-20 transition-colors group-hover:text-accent-light">
             {exp.period}
           </span>
           <h3 className={`${titleClass} text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4`}>
@@ -94,7 +95,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
           <div className={`${metaClass} mb-6 sm:mb-8`}>
             {exp.company}
           </div>
-          <p className="font-body text-on-surface-variant max-w-xl leading-relaxed text-sm sm:text-base lg:text-lg font-light wrap-break-word">
+          <p className="font-body text-on-surface-variant leading-relaxed text-sm sm:text-base lg:text-lg font-light wrap-break-word lg:max-w-[90%]">
             {exp.achievements[0]}
           </p>
           <div className="mt-8 sm:mt-10 lg:mt-12 flex gap-2 sm:gap-3 flex-wrap">
@@ -109,17 +110,16 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
     }
 
     const layoutIndex = (index - 1) % 3
+    const dynamicSpan = desktopSpanPattern[(index - 1) % desktopSpanPattern.length]
 
     if (layoutIndex === 0) {
       return (
         <div
           key={exp.id}
           {...getCardInteractions(exp)}
-          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors bg-white/2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
-            isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-5"
-          }`}
+          className={`col-span-12 ${dynamicSpan} border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group bg-white/2 hover:bg-[#1a1a1a] transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden`}
         >
-          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/45 tracking-wider wrap-break-word max-w-[55%] text-right transition-colors group-hover:text-accent-light">
             {getLevelLabel(index)}
           </div>
           <span className={`${periodClass} pr-20`}>
@@ -150,11 +150,9 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
         <div
           key={exp.id}
           {...getCardInteractions(exp)}
-          className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
-            isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-8 border-r"
-          }`}
+          className={`col-span-12 ${dynamicSpan} border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group bg-white/1 hover:bg-[#1a1a1a] transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden border-r`}
         >
-          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+          <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/45 tracking-wider wrap-break-word max-w-[55%] text-right transition-colors group-hover:text-accent-light">
             {getLevelLabel(index)}
           </div>
           <span className={`${periodClass} pr-20`}>
@@ -184,11 +182,9 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
       <div
         key={exp.id}
         {...getCardInteractions(exp)}
-        className={`col-span-12 border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group hover:bg-white/1 transition-colors cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden ${
-          isOddExperienceCount ? "lg:col-span-6" : "lg:col-span-4"
-        }`}
+        className={`col-span-12 ${dynamicSpan} border-b border-white/5 p-5 sm:p-8 lg:p-12 relative group bg-white/ hover:bg-[#1a1a1a] transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-1 focus:ring-accent/30 overflow-hidden`}
       >
-        <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-white/20 tracking-wider wrap-break-word max-w-[55%] text-right">
+        <div className="absolute top-0 right-0 p-3 sm:p-4 lg:p-6 font-label text-[8px] sm:text-[9px] text-accent/45 tracking-wider wrap-break-word max-w-[55%] text-right transition-colors group-hover:text-accent-light">
           {getLevelLabel(index)}
         </div>
         <span className={`${periodClass} pr-20`}>

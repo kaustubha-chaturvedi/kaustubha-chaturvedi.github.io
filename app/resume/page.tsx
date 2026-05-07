@@ -1,8 +1,8 @@
-"use client";
+import { redirect } from "next/navigation"
+
+import { loadPortfolioData } from "@/lib/portfolio"
 
 export default function ResumeRedirect() {
-  if (typeof window !== "undefined") {
-    window.location.replace("/resume.pdf");
-  }
-  return null;
+  const { profile } = loadPortfolioData()
+  redirect(profile.resume)
 }

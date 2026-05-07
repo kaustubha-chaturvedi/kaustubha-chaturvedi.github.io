@@ -1,10 +1,10 @@
-"use client"
-
 interface TopNavigationProps {
   name?: string
+  email: string
+  resume: string
 }
 
-export default function TopNavigation({ name = "KAUSTUBHA" }: TopNavigationProps) {
+export default function TopNavigation({ name = "KAUSTUBHA", email, resume }: TopNavigationProps) {
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#0e0e0e]/90 backdrop-blur-md border-b border-white/5 overflow-x-clip">
       <div className="flex justify-between items-center px-3 sm:px-5 md:px-12 py-4 sm:py-5 w-full max-w-screen-2xl mx-auto min-w-0 gap-2">
@@ -36,13 +36,13 @@ export default function TopNavigation({ name = "KAUSTUBHA" }: TopNavigationProps
         </div>
         <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           <a
-            href="mailto:kaustubhachaturvedi@gmail.com"
+            href={`mailto:${email}`}
             className="font-label tracking-[0.08em] sm:tracking-widest uppercase text-[9px] sm:text-[10px] font-bold text-white/80 px-2.5 sm:px-4 py-1.5 border border-white/20 hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
           >
             Email
           </a>
           <a
-            href="/Kaustubha_Resume.pdf"
+            href={resume}
             download
             className="font-label tracking-[0.08em] sm:tracking-widest uppercase text-[9px] sm:text-[10px] font-bold text-white/80 px-2.5 sm:px-4 py-1.5 border border-white/20 hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
           >

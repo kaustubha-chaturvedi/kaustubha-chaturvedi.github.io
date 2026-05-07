@@ -9,7 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        accent: "#D4AF37",
+        accent: {
+          DEFAULT: "#D4AF37",
+          light: "#E6C65C",
+          muted: "#9A7F28",
+          foreground: "#0E0E0E",
+        },
         "surface-container-low": "#131313",
         "surface-container-lowest": "#000000",
         "surface-container": "#191a1a",

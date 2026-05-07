@@ -1,5 +1,3 @@
-"use client"
-
 interface Project {
   title: string
   description: string
