@@ -71,10 +71,6 @@
           "category": "Languages"
         },
         {
-          "name": "SQL",
-          "category": "Languages"
-        },
-        {
           "name": "JavaScript",
           "category": "Languages"
         },
@@ -143,15 +139,19 @@
           "category": "Systems"
         },
         {
+          "name": "DevOps",
+          "category": "Systems"
+        },
+        {
+          "name": "CI/CD",
+          "category": "Systems"
+        },
+        {
           "name": "AWS",
           "category": "Cloud"
         },
         {
           "name": "Azure",
-          "category": "Cloud"
-        },
-        {
-          "name": "Docker",
           "category": "Cloud"
         },
         {
@@ -163,7 +163,7 @@
           "category": "Cloud"
         },
         {
-          "name": "CI/CD",
+          "name": "Docker",
           "category": "Cloud"
         }
       ]
