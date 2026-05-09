@@ -43,7 +43,8 @@ export default function TopNavigation({ name = "KAUSTUBHA", email, resume }: Top
           </a>
           <a
             href={resume}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-label tracking-[0.08em] sm:tracking-widest uppercase text-[9px] sm:text-[10px] font-bold text-white/80 px-2.5 sm:px-4 py-1.5 border border-white/20 hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
           >
             Resume

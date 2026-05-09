@@ -62,8 +62,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               </a>
               <a
                 href={profile.resume}
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="flex flex-col items-center gap-3 p-4 hover:bg-white/5 transition-colors group"
               >
                 <Download className="w-5 h-5 text-accent/60 group-hover:text-accent transition-colors" />
