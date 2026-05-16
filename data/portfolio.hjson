@@ -5,7 +5,7 @@
     "locale": "en_US",
     "locationCity": "Hyderabad",
     "locationCountryCode": "IN",
-    "ogImage": "/profile.jpeg",
+    "ogImage": "/profile.webp",
     "titleDefault": "Kaustubha Chaturvedi | Backend Engineer Portfolio",
     "titleTemplate": "%s | Kaustubha Chaturvedi",
     "description": "Kaustubha Chaturvedi is a Backend Engineer building scalable APIs, distributed systems, and cloud-native infrastructure with Go, Python, FastAPI, AWS, and Kubernetes.",
