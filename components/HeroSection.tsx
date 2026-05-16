@@ -2,6 +2,7 @@ import { Download, Github, Linkedin, Mail } from "lucide-react"
 
 interface HeroSectionProps {
   profile: {
+    picture: string
     name: string
     title: string
     bio: string
@@ -93,7 +94,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             <img
               alt="Professional Headshot"
               className="w-full h-full object-cover"
-              src="/profile.jpeg"
+              src={profile.picture}
             />
             <div className="absolute -bottom-12 left-0 w-full flex justify-between items-center px-2">
               <span className="text-[8px] text-white/30 tracking-widest uppercase">Status_Active</span>
